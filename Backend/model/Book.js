@@ -22,7 +22,9 @@ const bookSchema = new Schema({
     available:{
         type:Boolean,
         require:true
-    }
+    },
+
+    
 })
 
 module.exports = mongoose.model("Book", bookSchema);
