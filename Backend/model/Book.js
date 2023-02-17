@@ -23,7 +23,10 @@ const bookSchema = new Schema({
         type:Boolean,
         require:true
     },
-
+    image:{
+        type:String, 
+        required:true
+    }
     
 })
 

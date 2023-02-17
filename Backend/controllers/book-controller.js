@@ -18,7 +18,7 @@ const getAllBooks = async (req, res, next)=>{
 
 const addBook =  async(req, res, next)=>{
 
-    const {name, author, description, price, available} = req.body;
+    const {name, author, description, price, available, image} = req.body;
 
     let book;
 
@@ -28,7 +28,8 @@ const addBook =  async(req, res, next)=>{
                 author,
                 description,
                 price, 
-                available
+                available,
+                image
         });
 
         //save data in the database
@@ -67,7 +68,7 @@ const getOne = async(req, res, next) =>{
 const updateBook = async(req, res, next) =>{
 
     let id = req.params.id;
-    const {name, author, description, price, available} = req.body;
+    const {name, author, description, price, available, image} = req.body;
     let book;
 
     try{
@@ -76,8 +77,8 @@ const updateBook = async(req, res, next) =>{
                 author,
                 description,
                 price, 
-                available
-
+                available,
+                image
         })
 
         book=await book.save();
