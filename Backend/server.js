@@ -1,8 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const router = require("./routes/book_routes")
+const cors = require("cors");
 const app = express();
 
+
+app.use(cors())
 //middlewares
 app.use(express.json());
 app.use("/books", router)//http://localhost:5000/books

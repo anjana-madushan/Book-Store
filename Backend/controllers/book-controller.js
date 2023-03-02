@@ -72,7 +72,7 @@ const updateBook = async(req, res, next) =>{
     let book;
 
     try{
-        book = await Book.findByIdAndUpdate(id, {
+        book = await Book.findByIdAndUpdate(id,{new:true}, {
                 name, 
                 author,
                 description,
