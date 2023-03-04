@@ -1,13 +1,14 @@
-import { Button } from 'bootstrap';
+import {Button} from '@mui/material'
 import React from 'react'
-
+import "./styles/book.css"
 const Book = (props) => {
 
     const {_id, name, author, description, price, image} = props.book;
 
   return (
-    <div>
-        <img src={image} alt={name} />
+    <div className='card'>
+      
+      <img src={image} alt={name} />
         <article>By {author}</article>
         <h3>{name}</h3>
         <p>{description}</p>
@@ -15,6 +16,9 @@ const Book = (props) => {
 
         <Button>Update</Button>
         <Button>Delete</Button>
+      
+
+        
     </div>
   )
 }

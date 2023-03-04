@@ -72,7 +72,7 @@ const updateBook = async(req, res, next) =>{
     let book;
 
     try{
-        book = await Book.findByIdAndUpdate(id,{new:true}, {
+        book = await Book.findByIdAndUpdate(id, {
                 name, 
                 author,
                 description,
@@ -88,10 +88,10 @@ const updateBook = async(req, res, next) =>{
     }
 
     if(!book){
-        res.status(500).json({message:"Unable to Delete thi book"})
+        res.status(500).json({message:"Unable to Update this book"})
     }
 
-    return res.status(200).json({message:"Book is succesfully updated"})
+    return res.status(200).json({book})
 
 }
 
@@ -108,7 +108,7 @@ const deleteBook = async(req, res, next)=>{
     }
 
     if(!book){
-        res.status(500).json({message:"Unable to Delete thi book"})
+        res.status(500).json({message:"Unable to Delete this book"})
     }
 
     return res.status(200).json({message:"Book is succesfully deleted"})
