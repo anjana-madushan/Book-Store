@@ -67,7 +67,7 @@ const getOne = async(req, res, next) =>{
 
 const updateBook = async(req, res, next) =>{
 
-    let id = req.params.id;
+    let id = req.params._id;
     const {name, author, description, price, available, image} = req.body;
     let book;
 
@@ -81,7 +81,7 @@ const updateBook = async(req, res, next) =>{
                 image
         })
 
-        book=await book.save();
+        //book=await book.save();
 
     }catch(err){
         console.log(err)
