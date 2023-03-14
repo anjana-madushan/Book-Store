@@ -5,9 +5,9 @@ import axios from 'axios';
 const BookDetails = () => {
 
   const navigate = useNavigate();
-  const id =  useParams().bId;
+  const id =  useParams();
     const [inputs, setInputs] = useState({
-      name: '',
+    name: '',
     description:'',
     author:'',
     price:'',
@@ -19,12 +19,15 @@ const BookDetails = () => {
    // console.log(id)
     useEffect(()=>{
         
-            axios.get(`http://localhost:5000/books/${id}`).then((res)=> res.data).then((data)=>setInputs(data.book));
-
+      const fetchHandler = async () => {
+        await axios.get(`http://localhost:5000/books/${id.bId}`)
+        .then((res)=> res.data).then((data)=>setInputs(data.book));
+      }
+          
+      fetchHandler();
     }, [id])
 
-   
-    const handleSubmit = async(e) =>{
+    const sendData =(e) =>{
       e.preventDefault();
 
       const newBook = {
@@ -36,7 +39,7 @@ const BookDetails = () => {
         available:Boolean(checked)
       }
 
-        await axios.put(`http://localhost:5000/books/update/${id}`,newBook).then(res=>res.data).then(()=>{
+         axios.put(`http://localhost:5000/books/update/${id.bId}`,newBook).then(()=>{
           navigate("/books");
         }).catch((err)=>{
           alert(err);
@@ -51,7 +54,7 @@ const BookDetails = () => {
 
   return (
     <div className='form'>
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={sendData}>
     <div className="form-group">
       <label for="name">Name</label>
       <input value={inputs.name} onChange={handleChange}

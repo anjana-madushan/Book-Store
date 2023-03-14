@@ -67,21 +67,14 @@ const getOne = async(req, res, next) =>{
 
 const updateBook = async(req, res, next) =>{
 
-    let id = req.params._id;
-    const {name, author, description, price, available, image} = req.body;
+    let id = req.params.id;
+   // const {name, author, description, price, available, image} = req.body;
     let book;
 
     try{
-        book = await Book.findByIdAndUpdate(id, {
-                name, 
-                author,
-                description,
-                price, 
-                available,
-                image
-        })
+        book = await Book.findByIdAndUpdate(id, req.body, {new:true});
 
-        //book=await book.save();
+       // await book.save();
 
     }catch(err){
         console.log(err)
@@ -91,7 +84,11 @@ const updateBook = async(req, res, next) =>{
         res.status(500).json({message:"Unable to Update this book"})
     }
 
-    return res.status(200).json({book})
+    else{
+        return res.json({message:"Book successfully updated"})
+    }
+
+    
 
 }
 

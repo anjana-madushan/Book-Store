@@ -80,7 +80,7 @@ const AddBook = () => {
     </div>
 
     <div className="form-check">
-    <input checked={checked} onChange={()=>setChecked(!checked)}
+    <input checked={checked} onChange={()=>setChecked((checked)=>!checked)}
      type="checkbox" name='checked' class="form-check-input" id="exampleCheck1"/>
     <label className="form-check-label" for="exampleCheck1">Available</label>
   </div>
