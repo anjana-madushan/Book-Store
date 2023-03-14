@@ -13,9 +13,8 @@ const Book = (props) => {
 
       await axios.delete(`http://localhost:5000/books/${_id}`)
       .then((res)=>res.data)
-      .then(()=>navigate("/"))
+      .then(()=>navigate("/add"))
       .then(()=>navigate("/books"));
-      
     }
     
   return (
