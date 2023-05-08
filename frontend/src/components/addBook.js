@@ -24,7 +24,7 @@ const AddBook = () => {
     }))
   }
 
-
+  
 
   const handleSubmit = (e)=>{
     e.preventDefault();
@@ -50,31 +50,31 @@ const AddBook = () => {
     <div className='form'>
       <form onSubmit={handleSubmit}>
     <div className="form-group">
-      <label for="name">Name</label>
+      <label htmlFor="name">Name</label>
       <input value={inputs.name} onChange={handleChange}
        type="text" name='name' className="form-control" id="name" aria-describedby="nameHelp" placeholder="Enter Name"/>
     </div>
     
     <div className="form-group">
-      <label for="author">Author</label>
+      <label htmlFor="author">Author</label>
       <input value={inputs.author} onChange={handleChange}
        type="text" name='author' className="form-control" id="author" aria-describedby="authorHelp" placeholder="Enter Author"/>
     </div>
 
     <div className="form-group">
-      <label for="description">Description</label>
+      <label htmlFor="description">Description</label>
       <input value={inputs.description} onChange={handleChange} 
       type="text" name='description' className="form-control" id="description" aria-describedby="descriptionHelp" placeholder="Enter Description"/>
     </div>
 
     <div className="form-group">
-      <label for="price">Price</label>
+      <label htmlFor="price">Price</label>
       <input value={inputs.price} onChange={handleChange}
       type="number"  name='price' min={100}  className="form-control" id="price" aria-describedby="priceHelp" placeholder="Enter price"/>
     </div>
 
   <div className="form-group">
-      <label for="image">Image</label>
+      <label htmlFor="image">Image</label>
       <input type="text" value={inputs.image} onChange={handleChange}
           className="form-control" name='image' id="image" aria-describedby="imageHelp" placeholder="Enter image"/>
     </div>
@@ -82,7 +82,7 @@ const AddBook = () => {
     <div className="form-check">
     <input checked={checked} onChange={()=>setChecked((checked)=>!checked)}
      type="checkbox" name='checked' class="form-check-input" id="exampleCheck1"/>
-    <label className="form-check-label" for="exampleCheck1">Available</label>
+    <label className="form-check-label" htmlFor="exampleCheck1">Available</label>
   </div>
 
 <br/>

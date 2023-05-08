@@ -15,7 +15,6 @@ const BookDetails = () => {
     });
     const [checked, setChecked] = useState(false);
     
-
    // console.log(id)
     useEffect(()=>{
         
